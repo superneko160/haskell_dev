@@ -1,0 +1,50 @@
+# Cabal generated files and directories
+dist-newstyle/
+.cabal/
+cabal.project.local
+cabal.project.local~
+*.cabal~
+.ghc.environment.*
+
+# Build artifacts
+.stack-work/ # If you also use Stack
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+*.exe
+*-tmp/
+*.prof
+
+# Test results
+test/*.exe
+test/*.o
+test/*.hi
+test/*.prof
+
+# Benchmarks results
+bench/*.exe
+bench/*.o
+bench/*.hi
+bench/*.prof
+
+# Documentation
+doc/
+# If you generate Haddock documentation in a specific path not under dist-newstyle
+# for example, if you explicitly build it outside for GitHub Pages or similar
+# you might need to add that path here too.
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.swp
+*~
+.#*
+.DS_Store
+
+# Log files
+*.log
+
+# Dependency lock files (if not managed by specific tools like stack.yaml.lock)
+# cabal.project.freeze # Uncomment if you don't want to commit frozen dependencies
+
