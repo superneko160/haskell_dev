@@ -33,3 +33,13 @@ case expression of pattern -> result
 
 `lookup` で `Nothing`が返ったら、 `Left String` 値コンストラクタを使い、「ロッカーがない」という返事をする。ロッカーが存在する場合は、 `state` を参照してロッカーが使用中かどうか調べる。すでに使われている場合は、「使用中である」という旨のメッセージを含んだ `Left` 値を返す。空いていれば `Right Code`  値を返して暗証番号を伝える
 
+## 補足
+
+`Map` を利用する際、コンパイルエラーが発生した。調べたところ、依存関係のエラーのようだった。 `.cabal` ファイルの `build-depends` の項目に `containers` を追加することで正常に動作した。
+
+```
+-- Other library packages from which modules are imported.
+build-depends:    base ^>=4.18.3.0
+                , containers
+```
+
