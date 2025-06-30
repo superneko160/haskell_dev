@@ -28,7 +28,7 @@ lockerLookUp lockerNumber list = case Map.lookup lockerNumber list of
 ```hs
 case expression of pattern -> result
                    pattern -> result
-                   patterun -> result
+                   pattern -> result
 ```
 
 `lookup` で `Nothing`が返ったら、 `Left String` 値コンストラクタを使い、「ロッカーがない」という返事をする。ロッカーが存在する場合は、 `state` を参照してロッカーが使用中かどうか調べる。すでに使われている場合は、「使用中である」という旨のメッセージを含んだ `Left` 値を返す。空いていれば `Right Code`  値を返して暗証番号を伝える
