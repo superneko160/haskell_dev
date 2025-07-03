@@ -1,0 +1,10 @@
+indentation: 4
+column-limit: 100
+newlines: lf
+function-arrows: trailing
+comma-style: trailing
+import-export-style: leading
+record-brace-space: true
+respectful: true
+haddock-style: single-line
+

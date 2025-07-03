@@ -28,13 +28,13 @@ removeSpaces s = filter (not . isSpace) s
  -}
 quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
-quicksort (x:xs) =                         -- リストの先頭要素をピボットとする
-    let smallerOrEqual = filter (<= x) xs  -- ピボットより小さい要素のリスト作成
-        larger = filter (> x) xs           -- ピボットより大きい要素のリスト作成
-    in quicksort smallerOrEqual ++ [x] ++ quicksort larger
+quicksort (x : xs) =
+    -- リストの先頭要素をピボットとする
+    let smallerOrEqual = filter (<= x) xs -- ピボットより小さい要素のリスト作成
+        larger = filter (> x) xs -- ピボットより大きい要素のリスト作成
+     in quicksort smallerOrEqual ++ [x] ++ quicksort larger
 
 main :: IO ()
 main = do
     print (quicksort numbers)
     print (quicksort (removeSpaces text))
-

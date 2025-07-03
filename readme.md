@@ -36,4 +36,17 @@ cabal install hspec-discover
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 ```
+## Format
+
+### Setup
+
+```sh
+cabal install fourmalu
+```
+
+### Run
+
+```sh
+fourmolu --mode inplace $(find . -name "*.hs")
+```
 

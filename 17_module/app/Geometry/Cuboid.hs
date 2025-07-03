@@ -1,8 +1,7 @@
 -- 直方体
-module Geometry.Cuboid
-(
+module Geometry.Cuboid (
     volume,
-    area
+    area,
 ) where
 
 -- 面積
@@ -16,4 +15,3 @@ volume a b c = rectArea a b * c
 -- 四角形の面積（private）
 rectArea :: Float -> Float -> Float
 rectArea a b = a * b
-

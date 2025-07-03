@@ -15,14 +15,14 @@ type LockerMap = Map.Map Int (LockerState, Code)
 
 -- ロッカー
 lockers :: LockerMap
-lockers = Map.fromList
-    [
-        (100, (Taken, "ZD39I")),
-        (101, (Free, "QD29R")),
-        (102, (Free, "EX99Z")),
-        (103, (Taken, "TD30I")),
-        (104, (Taken, "HD34I"))
-    ]
+lockers =
+    Map.fromList
+        [ (100, (Taken, "ZD39I"))
+        , (101, (Free, "QD29R"))
+        , (102, (Free, "EX99Z"))
+        , (103, (Taken, "TD30I"))
+        , (104, (Taken, "HD34I"))
+        ]
 
 -- ロッカーのリストから暗証番号を検索する
 --
@@ -38,15 +38,15 @@ lockers = Map.fromList
 lockerLookUp :: Int -> LockerMap -> Either String Code
 lockerLookUp lockerNumber list = case Map.lookup lockerNumber list of
     Nothing -> Left $ "Locker " ++ show lockerNumber ++ " doesn't exist!"
-    Just(state, code) -> if state /= Taken
-                        then Right code
-                        else Left $ "Locker " ++ show lockerNumber ++ " is already taken!"
+    Just (state, code) ->
+        if state /= Taken
+            then Right code
+            else Left $ "Locker " ++ show lockerNumber ++ " is already taken!"
 
 main :: IO ()
 main = do
-    print (lockerLookUp 101 lockers)  -- 使用中
-    print (lockerLookUp 102 lockers)  -- 使用中
-    print (lockerLookUp 103 lockers)  -- 空き
-    print (lockerLookUp 104 lockers)  -- 空き
-    print (lockerLookUp 105 lockers)  -- 存在しない
-
+    print (lockerLookUp 101 lockers) -- 使用中
+    print (lockerLookUp 102 lockers) -- 使用中
+    print (lockerLookUp 103 lockers) -- 空き
+    print (lockerLookUp 104 lockers) -- 空き
+    print (lockerLookUp 105 lockers) -- 存在しない

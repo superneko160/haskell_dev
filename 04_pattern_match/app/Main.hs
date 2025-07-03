@@ -14,4 +14,3 @@ main = do
     print (describeHttpStatusCode 404)
     print (describeHttpStatusCode 500)
     print (describeHttpStatusCode 700)
-

@@ -10,8 +10,7 @@ h :: Int -> Int
 h n = n * 4
 
 compositionFunc :: Int -> Int
-compositionFunc = f . g . h  -- f(g(h(n)))
+compositionFunc = f . g . h -- f(g(h(n)))
 
 main :: IO ()
 main = print $ compositionFunc 5
-

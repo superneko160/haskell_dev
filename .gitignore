@@ -48,3 +48,6 @@ doc/
 # Dependency lock files (if not managed by specific tools like stack.yaml.lock)
 # cabal.project.freeze # Uncomment if you don't want to commit frozen dependencies
 
+# Fourmolu backup files
+*.hs.bak
+

@@ -12,9 +12,8 @@ multThree x y z = x * y * z
 
 main :: IO ()
 main = do
-    print (applyTwice (+3) 10)             -- 16  +3が2回適用されて+6
-    print (applyTwice (++ " HAHA") "HEY")  -- HEY HAHA HAHA
-    print (applyTwice ("HAHA " ++) "HEY")  -- HAHA HAHA HEY
-    print (applyTwice (multThree 2 2) 9)   -- 4 * g を2回適用するので、4 * 9 = 36, 4 * 36 = 144
-    print (applyTwice (3:) [2])            -- (:3) 3を先頭に追加 [2] 2だけが入ったリスト  [3, 3, 2]
-
+    print (applyTwice (+ 3) 10) -- 16  +3が2回適用されて+6
+    print (applyTwice (++ " HAHA") "HEY") -- HEY HAHA HAHA
+    print (applyTwice ("HAHA " ++) "HEY") -- HAHA HAHA HEY
+    print (applyTwice (multThree 2 2) 9) -- 4 * g を2回適用するので、4 * 9 = 36, 4 * 36 = 144
+    print (applyTwice (3 :) [2]) -- (:3) 3を先頭に追加 [2] 2だけが入ったリスト  [3, 3, 2]

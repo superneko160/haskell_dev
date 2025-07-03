@@ -20,9 +20,8 @@ maximum' [x] = x
  - x リストの先頭要素
  - xs リストの残り部分（リスト）
  -}
-maximum' (x:xs) = max x (maximum' xs)
+maximum' (x : xs) = max x (maximum' xs)
 
 main :: IO ()
 main = do
     print (maximum' numbers)
-
