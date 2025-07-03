@@ -1,8 +1,7 @@
 -- 立方体
-module Geometry.Cube
-(
+module Geometry.Cube (
     volume,
-    area
+    area,
 ) where
 
 import qualified Geometry.Cuboid as Cuboid
@@ -14,4 +13,3 @@ area side = Cuboid.area side side side
 -- 体積
 volume :: Float -> Float
 volume side = Cuboid.volume side side side
-

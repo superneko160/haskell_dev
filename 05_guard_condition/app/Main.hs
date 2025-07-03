@@ -20,4 +20,3 @@ main = do
     print (fizzBuzz 3)
     print (fizzBuzz 5)
     print (fizzBuzz 15)
-
