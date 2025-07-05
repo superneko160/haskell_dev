@@ -27,3 +27,49 @@ sum' xs = foldr (+) 0 xs
 sum' [1, 2, 3, 4]  -- 10
 ```
 
+サンプルコード上のbuildTree関数で引数のリストを取っていないのは、部分適用とカリー化の仕組みによるもの。一般的にHaskellでは、引数を明示しないポイントスタイルが好まれる
+
+```hs
+-- リストから木を構築する
+buildTree :: (Ord a) => [a] -> Tree a
+buildTree = foldr treeInsert EmptyTree
+```
+
+### データ型をエクスポート
+
+以下のデータ型をエクスポートしたい場合、いくつか方法がある
+
+```hs
+-- 型名 = コンストラクタ | コンストラクタ
+data Tree a = EmptyTree | Node a (Tree a) (Tree a)
+```
+
+```hs
+-- 1. 型のみエクスポート（コンストラクタは隠蔽）
+module DataBinarySearchTree
+    ( Tree
+    , treeInsert
+    -- ...
+    ) where
+
+-- 2. 特定のコンストラクタのみエクスポート
+module DataBinarySearchTree
+    ( Tree(EmptyTree)  -- EmptyTreeのみ公開
+    , treeInsert
+    -- ...
+    ) where
+
+module DataBinarySearchTree
+    ( Tree(EmptyTree, Node)  -- EmptyTreeとNode公開
+    , treeInsert
+    -- ...
+    ) where
+
+-- すべてのコンストラクタをエクスポート
+module DataBinarySearchTree
+    ( Tree(..)
+    , treeInsert
+    -- ...
+    ) where
+```
+

@@ -53,10 +53,27 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable x21-binary-search-tree
+-- ライブラリとして追加
+library
     -- Import common warning flags.
     import:           warnings
 
+    -- Modules exported by the library
+    exposed-modules: Data.BinarySearchTree
+
+    -- Other library packages from which modules are imported.
+    build-depends:    base ^>=4.18.3.0
+
+    -- Directories containing source files.
+    hs-source-dirs:   src
+
+    -- Base language which the package is written in.
+    default-language: Haskell2010
+
+executable x21-binary-search-tree
+    -- Import common warning flags.
+    import:           warnings
+ 
     -- .hs or .lhs file containing the Main module.
     main-is:          Main.hs
 
@@ -67,10 +84,12 @@ executable x21-binary-search-tree
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.18.3.0
+    build-depends:    base ^>=4.18.3.0,
+                      x21-binary-search-tree
 
     -- Directories containing source files.
     hs-source-dirs:   app
 
     -- Base language which the package is written in.
     default-language: Haskell2010
+
