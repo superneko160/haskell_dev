@@ -1,10 +1,10 @@
-module Data.BinarySearchTree
-    ( Tree(..)
-    , singleton
-    , treeInsert
-    , treeElem
-    , buildTree
-    ) where
+module Data.BinarySearchTree (
+    Tree (..),
+    singleton,
+    treeInsert,
+    treeElem,
+    buildTree,
+) where
 
 -- 木構造
 data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show)
@@ -32,4 +32,3 @@ treeElem x (Node a left right)
 -- リストから木を構築する
 buildTree :: (Ord a) => [a] -> Tree a
 buildTree = foldr treeInsert EmptyTree
-
