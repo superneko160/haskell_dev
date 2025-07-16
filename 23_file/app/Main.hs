@@ -4,7 +4,6 @@ import System.IO
 
 main :: IO ()
 main = do
-
     -- 1. openFile関数：ファイルパスとモードの2つの引数をとる
     -- handle <- openFile "baabaa.txt" ReadMode
     -- 2. hGetContents関数：渡されたハンドルからファイルの内容を読み込む
@@ -19,4 +18,3 @@ main = do
     withFile "baabaa.txt" ReadMode $ \handle -> do
         contents <- hGetContents handle
         putStr contents
-

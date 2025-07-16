@@ -9,8 +9,7 @@ main :: IO ()
 main = do
     line <- getLine -- 入力を受け取る
     if null line
-        then return() -- なにもしないI/Oアクションを作成
+        then return () -- なにもしないI/Oアクションを作成
         else do
             putStrLn $ reverseWords line
             main -- 再帰
-
