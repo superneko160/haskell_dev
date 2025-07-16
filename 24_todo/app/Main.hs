@@ -17,6 +17,7 @@ dispatch :: String -> [String] -> IO ()
 dispatch "add" = add
 dispatch "view" = view
 dispatch "remove" = remove
+dispatch "bump" = bump
 dispatch command = doesntExist command
 
 -- TODOリストに追加
@@ -45,6 +46,26 @@ remove [fileName, numberString] = do
             hClose tempHandle
             removeFile tempName)
 
+        (\(tempName, tempHandle) -> do
+            hPutStr tempHandle newTodoItems
+            hClose tempHandle
+            removeFile fileName
+            renameFile tempName fileName)
+
+-- 指定された要素を先頭に移動した新しいリストを作成
+bump :: [String] -> IO ()
+bump [fileName, numberString] = do
+    contents <- readFile fileName
+    let todoTasks = lines contents
+        number = read numberString
+        task = todoTasks !! number
+        remainingTasks = delete task todoTasks
+        newTodoItems = unlines $ task : remainingTasks
+
+    bracketOnError (openTempFile "." "temp")
+        (\(tempName, tempHandle) -> do
+            hClose tempHandle
+            removeFile tempName)
         (\(tempName, tempHandle) -> do
             hPutStr tempHandle newTodoItems
             hClose tempHandle

@@ -20,3 +20,9 @@ cabal run exes -- add todo.txt "New Task!!"
 cabal run exes -- remove todo.txt 2
 ```
 
+### Bump
+
+```sh
+cabal run exes -- bump todo.txt 2
+```
+
