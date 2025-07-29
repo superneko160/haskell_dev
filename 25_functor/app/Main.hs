@@ -26,9 +26,9 @@ data Box a = Empty | Full a deriving (Show, Eq)
 
 -- BoxをFunctorのインスタンスにする
 instance Functor Box where
-    fmap _ Empty = Empty  -- 空の箱にはなにもしない
+    fmap _ Empty = Empty -- 空の箱にはなにもしない
     fmap f (Full x) = Full (f x) -- 中身がある場合には関数を適用
-    
+
 -- 独自のFunctorの利用例
 boxExamples :: IO ()
 boxExamples = do
@@ -43,4 +43,3 @@ main = do
     maybeExamples
     listExamples
     boxExamples
-

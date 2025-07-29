@@ -32,4 +32,3 @@ main = do
     putStrLn ""
     putStrLn "--- リストの例 ---"
     putStrLn $ "２つリストの要素をすべて足す組み合わせ: " ++ show exampleListCombinations
-
