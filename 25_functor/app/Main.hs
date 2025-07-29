@@ -1,6 +1,5 @@
 module Main where
 
--- 日本語文字化けしたので使用
 import GHC.IO.Encoding (setLocaleEncoding, utf8)
 
 addOne :: Int -> Int
